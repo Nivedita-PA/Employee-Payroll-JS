@@ -17,17 +17,25 @@
                 return 0;
         }
     }
+
+    function calculateDailyWage(empHrs) {
+        return empHrs * WAGE_PER_HOURS;
+    }
+
     let totalEmpHrs = 0;
     let totalWorkingdays = 0;
+    let empDailyWage = new Array();
+
     while (totalEmpHrs <= MAX_HRS_IN_MONTHS && totalWorkingdays < NUM_OF_WORKING_DAYS) {
         totalWorkingdays++;
         let empCheck = Math.floor(Math.random() * 10) % 3;
         totalEmpHrs += getWorkingHours(empCheck);
+        empDailyWage.push(calculateDailyWage(totalEmpHrs));
     }
     // for (let day = 0; day < NUM_OF_WORKING_DAYS; day++) {
     //     let empCheck = Math.floor(Math.random() * 10) % 3;
     //     totalEmpHrs += getWorkingHours(empCheck);
     // }
-    let empWage = totalEmpHrs * WAGE_PER_HOURS;
+    let empWage = calculateDailyWage(totalEmpHrs);
     console.log("Emp working days: " + totalWorkingdays + " Emp Hours: " + totalEmpHrs + " Emp Wage: " + empWage);
 }
