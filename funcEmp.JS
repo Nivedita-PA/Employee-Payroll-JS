@@ -38,4 +38,19 @@
     // }
     let empWage = calculateDailyWage(totalEmpHrs);
     console.log("Emp working days: " + totalWorkingdays + " Emp Hours: " + totalEmpHrs + " Emp Wage: " + empWage);
+
+    let totalEmpWage = 0;
+
+    function sum(dailyWage) {
+        totalEmpWage += dailyWage;
+    }
+
+    empDailyWage.forEach(sum);
+    console.log("Emp working days: " + totalWorkingdays + " Emp Hours: " + totalEmpHrs + " Total Emp Wage: " + totalEmpWage);
+
+    function totalWages(totalEmpWage, dailyWage) {
+        return totalEmpWage + dailyWage;
+    }
+
+    console.log("Emp wage with reduce: " + empDailyWage.reduce(totalWages, 0));
 }
