@@ -29,8 +29,9 @@
     while (totalEmpHrs <= MAX_HRS_IN_MONTHS && totalWorkingdays < NUM_OF_WORKING_DAYS) {
         totalWorkingdays++;
         let empCheck = Math.floor(Math.random() * 10) % 3;
-        totalEmpHrs += getWorkingHours(empCheck);
-        empDailyWage.push(calculateDailyWage(totalEmpHrs));
+        let empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyWage.push(calculateDailyWage(empHrs));
     }
     // for (let day = 0; day < NUM_OF_WORKING_DAYS; day++) {
     //     let empCheck = Math.floor(Math.random() * 10) % 3;
@@ -51,6 +52,15 @@
     function totalWages(totalEmpWage, dailyWage) {
         return totalEmpWage + dailyWage;
     }
-
     console.log("Emp wage with reduce: " + empDailyWage.reduce(totalWages, 0));
+
+    let dailyCntr = 0;
+
+    function mapDayWithWage(dailyWage) {
+        dailyCntr++;
+        return dailyCntr + "=" + dailyWage;
+    }
+    let mapDayWithWageArr = empDailyWage.map(mapDayWithWage);
+    console.log("Daily wage Map");
+    console.log(mapDayWithWageArr);
 }
