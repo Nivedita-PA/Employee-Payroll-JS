@@ -78,4 +78,10 @@
 
     console.log("First time full time wage was earned on the day: " +
         mapDayWithWageArr.find(findfullTimeWage));
+
+    function isAnyPartTimeWage(dailyWage) {
+        return dailyWage.includes("80");
+    }
+    console.log("Checking part time wage: ");
+    console.log(mapDayWithWageArr.some(isAnyPartTimeWage));
 }
