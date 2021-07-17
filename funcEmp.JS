@@ -84,4 +84,12 @@
     }
     console.log("Checking part time wage: ");
     console.log(mapDayWithWageArr.some(isAnyPartTimeWage));
+
+    function totalDaysWorked(numOfDays, dailyWage) {
+        if (dailyWage > 0) return numOfDays + 1;
+        return numOfDays;
+    }
+
+    console.log("Number of days employee worked: " +
+        empDailyWage.reduce(totalDaysWorked, 0));
 }
